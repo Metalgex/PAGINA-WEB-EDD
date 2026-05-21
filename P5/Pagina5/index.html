@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listas Enlazadas</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<script>
+function escribirLineaLista(texto) {
+    return new Promise(resolve => {
+        const consola = document.getElementById("consola-lista");
+        const linea = document.createElement("div");
+        consola.appendChild(linea);
+
+        let i = 0;
+        const intervalo = setInterval(() => {
+            linea.textContent += texto[i];
+            i++;
+            if (i >= texto.length) {
+                clearInterval(intervalo);
+                resolve();
+            }
+        }, 20);
+    });
+}
+
+async function ejecutarLista() {
+    const consola = document.getElementById("consola-lista");
+    consola.innerHTML = "";
+
+    await escribirLineaLista("> Creando lista enlazada...");
+    await escribirLineaLista("> Insertando nodos...");
+
+    let lista = [10, 20, 30];
+
+    for (let i = 0; i < lista.length; i++) {
+        await escribirLineaLista("> Nodo: " + lista[i]);
+    }
+
+    await escribirLineaLista("> Recorrido completado ");
+}
+</script>
+<body>
+    <header class="header" id="inicio">
+         <a href="javascript:history.back()" class="btn-regresar">
+    <i class="fas fa-arrow-left"></i>
+    <span>← Regresar</span>
+</a>
+        <div class="contenedor head">
+            <h1 class="titulo">Listas Enlazadas</h1>
+            <p class="copy">Elementos conectados mediante punteros......</p>
+        </div>       
+    </header>
+    <main>
+        <section class="services contenedor" id="servicio">
+            <h2 class="subtitulo">██▓▒░⡷⠂Que es una lista enlazada ?⠐⢾░▒▓██</h2>
+            <div class="contenedor-servicio">
+                <img src="img/siete.png" class="img-galeria" alt="">
+                <div class="checklist-servicio">
+                    <div class="service">
+                        <h3 class="n-service"><span class="number">1</span></h3>
+                        <p> Al igual que los arreglos la lista enlazada (linked/list) es una estructura de datos lineal, a diferencia de los arreglos los elementos de una lista enlazada no se almacenan en ubicaciones contiguas de memoria; los elementos están conectados entre sí mediante punteros.</p>
+                    </div>
+                    <div class="service">
+                        <h3 class="n-service"><span class="number">2</span></h3>
+                        <p>Una lista enlazada es una estructura de datos lineal y dinámica, compuesta por nodos secuenciales que no requieren ubicaciones contiguas de memoria.</p>
+                    </div>
+                    <div class="service">
+                        <h3 class="n-service"><span class="number">3</span></h3>
+                        <p>. Cada nodo contiene datos y un puntero (referencia) al siguiente elemento, permitiendo inserciones y eliminaciones eficientes sin reorganizar toda la estructura. El primer nodo se denomina cabeza (HEAD) y el último apunta a NULL. </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="gallery" id="galeria">
+            <div class="contenedor">
+                <h2 class="subtitulo">Ejemplos</h2>
+                <div class="contenedor-galeria">
+                    <img src="img/uno.jpg" class="img-galeria" alt="Hola">
+                    <img src="img/dos.jpg" class="img-galeria" alt="">
+                    <img src="img/tres.jpg" class="img-galeria" alt="">
+                    
+                </div>
+            </div>
+        </section>
+        <div class="imagen-light">
+            <img src="img/close.svg" alt="" class="close">
+            <img src="" alt="" class="agregar-imagen">
+        </div>
+        <section class="contenedor" id="expertos">
+            <h2 class="subtitulo">██▓▒░⡷⠂EJEMPLO EN CODIGO⠐⢾░▒▓██</h2>
+        </section>
+        <section class="contenedor1 bloque-ejemplo" style="margin-top:30px;">
+    <style>
+        .bloque-ejemplo {
+            display: flex;
+            justify-content: center;
+        }
+
+        .bloque-java {
+            max-width: 650px;
+            width: 100%;
+            margin: 40px auto;
+            font-family: 'Courier New', monospace;
+        }
+
+        .codigo-java {
+            background: #1e1e1e;
+            color: #dcdcdc;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
+            font-size: 14px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+
+            margin: 0;
+            width: 100%;
+            overflow-x: auto;
+            white-space: pre;
+            text-align: left;
+        }
+
+        .keyword { color: #569CD6; }
+        .class { color: #4EC9B0; }
+        .string { color: #CE9178; }
+        .method { color: #DCDCAA; }
+
+        .btn-ejecutar {
+            margin-top: 10px;
+            background: #00ff9d;
+            color: #000;
+            border: none;
+            padding: 6px 14px;
+            font-size: 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-ejecutar:hover {
+            background: #00cc7a;
+            transform: scale(1.05);
+        }
+
+        .consola {
+            background: #000;
+            color: #00ff9d;
+            padding: 15px;
+            border-radius: 0 0 10px 10px;
+            min-height: 140px;
+            font-size: 14px;
+        }
+    </style>
+
+    <div class="bloque-java">
+
+<pre class="codigo-java"><span class="keyword">class</span> <span class="class">Nodo</span> {
+    <span class="keyword">int</span> dato;
+    Nodo siguiente;
+
+    Nodo(<span class="keyword">int</span> dato) {
+        <span class="keyword">this</span>.dato = dato;
+        <span class="keyword">this</span>.siguiente = <span class="keyword">null</span>;
+    }
+}
+
+<span class="keyword">public class</span> <span class="class">ListaEnlazada</span> {
+
+    Nodo cabeza;
+
+    <span class="keyword">void</span> <span class="method">agregar</span>(<span class="keyword">int</span> dato) {
+        Nodo nuevo = <span class="keyword">new</span> Nodo(dato);
+
+        <span class="keyword">if</span> (cabeza == <span class="keyword">null</span>) {
+            cabeza = nuevo;
+        } <span class="keyword">else</span> {
+            Nodo actual = cabeza;
+            <span class="keyword">while</span> (actual.siguiente != <span class="keyword">null</span>) {
+                actual = actual.siguiente;
+            }
+            actual.siguiente = nuevo;
+        }
+    }
+
+    <span class="keyword">void</span> <span class="method">mostrar</span>() {
+        Nodo actual = cabeza;
+
+        <span class="keyword">while</span> (actual != <span class="keyword">null</span>) {
+            System.out.println(<span class="string">"Nodo: "</span> + actual.dato);
+            actual = actual.siguiente;
+        }
+    }
+
+    <span class="keyword">public static void</span> <span class="method">main</span>(String[] args) {
+        ListaEnlazada lista = <span class="keyword">new</span> ListaEnlazada();
+
+        lista.agregar(10);
+        lista.agregar(20);
+        lista.agregar(30);
+
+        lista.mostrar();
+    }
+}
+</pre>
+
+        <button class="btn-ejecutar" onclick="ejecutarLista()">▶ Ejecutar</button>
+
+        <div id="consola-lista" class="consola"></div>
+
+    </div>
+</section>
+    </main>
+
+    <footer id="footer">
+        <div class="contenedor footer-content">
+                <div class="contact-us">
+                    <h2 class="brand">Listas enlazadas</h2>
+                    <p>𝙲onoce mas sobre ellas.....</p>
+                </div>
+                <div class="social-media">
+                    <a href="./" class="social-media-icon">
+                        <i class='bx bxl-facebook'></i>
+                    </a>
+                    <a href="./" class="social-media-icon">
+                        <i class='bx bxl-twitter' ></i>
+                    </a>
+                    <a href="./" class="social-media-icon">
+                        <i class='bx bxl-instagram' ></i>
+                    </a>
+                </div>
+        </div>
+        <div class="line"></div>
+    </footer>
+    <script src="js/menu.js"></script>
+    <script src="js/lightbox.js"></script>
+</body>
+</html>
