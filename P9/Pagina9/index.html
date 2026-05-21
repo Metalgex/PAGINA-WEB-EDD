@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tabla | Hash</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<script>
+function escribirLineaHash(texto) {
+    return new Promise(resolve => {
+        const consola = document.getElementById("consola-hash");
+        const linea = document.createElement("div");
+        consola.appendChild(linea);
+
+        let i = 0;
+        const intervalo = setInterval(() => {
+            linea.textContent += texto[i];
+            i++;
+            if (i >= texto.length) {
+                clearInterval(intervalo);
+                resolve();
+            }
+        }, 20);
+    });
+}
+
+async function ejecutarHash() {
+    const consola = document.getElementById("consola-hash");
+    consola.innerHTML = "";
+
+    await escribirLineaHash("> Inicializando tabla hash...");
+
+    let tabla = {
+        "Santiago": 19,
+        "Lizeth": 19,
+        "Leslie": 20
+    };
+
+    await escribirLineaHash("> Tabla: " + JSON.stringify(tabla));
+
+    await escribirLineaHash("> Buscando edad de Lizeth...");
+    await escribirLineaHash("> Edad de Lizeth: " + tabla["Lizeth"]);
+
+    await escribirLineaHash("> Eliminando a Santiago...");
+    delete tabla["Santiago"];
+
+    await escribirLineaHash("> Tabla final: " + JSON.stringify(tabla));
+
+    await escribirLineaHash("> Proceso finalizado ");
+}
+</script>
+<body>
+    < <a href="javascript:history.back()" 
+style="
+position: fixed;
+top: 100px;
+left: 20px;
+z-index: 99999;
+
+display: flex;
+align-items: center;
+gap: 8px;
+
+padding: 10px 20px;
+border-radius: 50px;
+
+background: linear-gradient(135deg, rgba(0,0,0,0.85), rgba(40,40,40,0.9));
+color: white;
+
+font-size: 14px;
+font-weight: 500;
+letter-spacing: 0.5px;
+
+text-decoration: none;
+
+backdrop-filter: blur(12px);
+
+box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+
+opacity: 0;
+transform: translateY(-20px);
+
+animation: aparecer 0.8s ease forwards;
+
+transition: all 0.3s ease;
+"
+onmouseover="this.style.transform='translateY(-4px) scale(1.06)'; this.style.boxShadow='0 15px 40px rgba(0,0,0,0.8)'"
+onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.6)'"
+onmousedown="this.style.transform='scale(0.95)'"
+onmouseup="this.style.transform='scale(1.06)'"
+>
+<span style="
+display:inline-block;
+transition: transform 0.3s;
+"
+onmouseover="this.style.transform='translateX(-6px)'"
+onmouseout="this.style.transform='translateX(0)'"
+>
+←
+</span>
+Regresar
+</a>
+
+<style>
+@keyframes aparecer {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+    <header>
+        <div class="textos">
+            <h1 class="titulo">Tabla Hash</h1>
+            <h3 class="subtitulo">( Hash Table )</h3>
+            <a href="#" class="boton"></a>
+        </div>
+        <div class="sesgoabajo"></div>
+    </header>
+    <main>
+        <section class="acerca-de">
+            <div class="contenedor">
+                <h2 class="sobre-nosotros">Que es una tabla hash</h2>
+                <h3 class="slogan">Conoce mas sobre ella</h3>
+                <p class="parrafo">El hasing es una estructura de datos importante que está diseñada para utilizar una función especial llamada función hash, lo cual se usa para asociar un valor dado con una clase específica, permitiendo un acceso más rápido a los elementos.
+La eficiencia de esta asociación depende directamente de la eficiencia de la función hash utilizada.
+</p>
+        </section>
+        <section class="galeria">
+            <div class="sesgoarriba"></div>
+            <div class="imagenes none">
+                <img src="1.jpg" alt="">
+            </div>
+            <div class="imagenes">
+                <img src="3.jpg" alt="">
+            </div>
+            <div class="imagenes">
+                <img src="2.jpg" alt="">
+                <div class="encima">
+                    <h2>AlexCG Design</h2>
+                    <div></div>
+                </div>
+            </div>
+            <div class="imagenes">
+                <img src="4.jpeg" alt="">
+
+            </div>
+            <div class="imagenes none">
+                <img src="5.jpeg" alt="">
+            </div>
+            <div class="sesgoabajo"></div>
+        </section>
+        <section class="miembros">
+            <div class="contenedor">
+                <h2 class="sobre-nosotros">Ejemplo en codigo </h2>
+                <h3 class="slogan"></h3>
+        </section>
+        <section class="contenedor1 bloque-ejemplo" style="margin-top:30px;">
+
+<style>
+.bloque-ejemplo {
+    display: flex;
+    justify-content: center;
+}
+
+.bloque-java {
+    max-width: 650px;
+    width: 100%;
+    margin: 40px auto;
+    font-family: 'Courier New', monospace;
+}
+
+.codigo-java {
+    background: #1e1e1e;
+    color: #dcdcdc;
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+    font-size: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+
+    margin: 0;
+    width: 100%;
+    overflow-x: auto;
+    white-space: pre;
+    text-align: left;
+}
+
+.keyword { color: #569CD6; }
+.class { color: #4EC9B0; }
+.string { color: #CE9178; }
+.method { color: #DCDCAA; }
+
+.btn-ejecutar {
+    margin-top: 10px;
+    background: #00ff9d;
+    color: #000;
+    border: none;
+    padding: 6px 14px;
+    font-size: 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-ejecutar:hover {
+    background: #00cc7a;
+    transform: scale(1.05);
+}
+
+.consola {
+    background: #000;
+    color: #00ff9d;
+    padding: 15px;
+    border-radius: 0 0 10px 10px;
+    min-height: 140px;
+    font-size: 14px;
+}
+</style>
+
+<div class="bloque-java">
+
+<pre class="codigo-java"><span class="keyword">import</span> java.util.*;
+
+<span class="keyword">public class</span> <span class="class">TablaHash</span> {
+
+    <span class="keyword">public static void</span> <span class="method">main</span>(String[] args) {
+
+        HashMap&lt;String, Integer&gt; edades = <span class="keyword">new</span> HashMap&lt;&gt;();
+
+        edades.put(<span class="string">"Santiago"</span>, 19);
+        edades.put(<span class="string">"Lizeth"</span>, 19);
+        edades.put(<span class="string">"Leslie"</span>, 20);
+
+        System.out.println(<span class="string">"Tabla Hash: "</span> + edades);
+
+        System.out.println(<span class="string">"Edad de Lizeth: "</span> + edades.get(<span class="string">"Lizeth"</span>));
+
+        edades.remove(<span class="string">"Santiago"</span>);
+
+        System.out.println(<span class="string">"Después de eliminar: "</span> + edades);
+    }
+}
+</pre>
+
+<button class="btn-ejecutar" onclick="ejecutarHash()">▶ Ejecutar</button>
+
+<div id="consola-hash" class="consola"></div>
+
+</div>
+</section>
+    </main>
+   
+</body>
+
+</html>

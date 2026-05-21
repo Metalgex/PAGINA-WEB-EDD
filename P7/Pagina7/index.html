@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>COLA ( QUEVE )</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<script>
+function escribirLineaCola(texto) {
+    return new Promise(resolve => {
+        const consola = document.getElementById("consola-cola");
+        const linea = document.createElement("div");
+        consola.appendChild(linea);
+
+        let i = 0;
+        const intervalo = setInterval(() => {
+            linea.textContent += texto[i];
+            i++;
+            if (i >= texto.length) {
+                clearInterval(intervalo);
+                resolve();
+            }
+        }, 20);
+    });
+}
+
+async function ejecutarCola() {
+    const consola = document.getElementById("consola-cola");
+    consola.innerHTML = "";
+
+    let cola = ["Persona 1", "Persona 2", "Persona 3"];
+
+    await escribirLineaCola("> Compilando...");
+    await escribirLineaCola("> Ejecutando cola...");
+
+    await escribirLineaCola("> Cola inicial: " + cola.join(", "));
+
+    let atendido = cola.shift();
+    await escribirLineaCola("> Atendiendo a: " + atendido);
+
+    await escribirLineaCola("> Siguiente: " + cola[0]);
+
+    await escribirLineaCola("> Cola final: " + cola.join(", "));
+    await escribirLineaCola("> Proceso finalizado ");
+}
+</script>
+<body>
+    <a href="javascript:history.back()" class="btn-regresar">
+    <i class="fas fa-arrow-left"></i>
+    ← Regresar
+</a>
+    <header class="hero">
+
+        <div class="textos-hero">
+            <h1>Cola ( Queve )</h1>
+            <p>Creamos el mejor sitio web para ti</p>
+            <a href="#contacto">La mejor informacion la encuentras con nosotros</a>
+        </div>
+        <div class="svg-hero" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
+                style="height: 100%; width: 100%;">
+                <path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
+                    style="stroke: none; fill: #fff;"></path>
+            </svg></div>
+    </header>
+
+
+    <section class="wave-contenedor website">
+        <img src="img/lenguaje-de-codificacion.png" alt="">
+        <div class="contenedor-textos-main">
+            <h2 class="titulo left">Primero en entrar primero en salir. </h2>
+            <p class="parrafo">Al igual que la pila (stack), la cola es una estructura lineal que sigue un orden particular en el que se realizan las operaciones. Este orden es FIFO (first in, first out - primero en entrar primero en salir) en una cola los elementos se insertan por un extremo y se elimina por el otro extremo. La diferencia entre pilas y colas está en la forma de eliminar los elementos, en una pila se elimina el elemento añadido más recientemente, mientras que en una cola se elimina el elemento añadido hace más tiempo.</p>
+        </div>
+    </section>
+
+    <section class="info">
+        <div class="contenedor">
+            <h2 class="titulo left">Métodos Principales:</h2>
+            <p>offer(e) / add(e): Añade un elemento al final.</p>
+            <p>poll() / remove(): Obtiene y elimina el primer elemento.</p>
+            <p>peek() / element(): Obtiene el primer elemento sin eliminarlo. </p>
+        </div>
+    </section>
+
+    <section class="galeria">
+        <div class="contenedor">
+            <h2 class="titulo">Ejemplo de codigo en Java :</h2>
+        </div>
+    </section>
+    <section class="contenedor1 bloque-ejemplo" style="margin-top:30px;">
+
+<style>
+.bloque-ejemplo {
+    display: flex;
+    justify-content: center;
+}
+
+.bloque-java {
+    max-width: 650px;
+    width: 100%;
+    margin: 40px auto;
+    font-family: 'Courier New', monospace;
+}
+
+.codigo-java {
+    background: #1e1e1e;
+    color: #dcdcdc;
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+    font-size: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+
+    margin: 0;
+    width: 100%;
+    overflow-x: auto;
+    white-space: pre;
+    text-align: left;
+}
+
+.keyword { color: #569CD6; }
+.class { color: #4EC9B0; }
+.string { color: #CE9178; }
+.method { color: #DCDCAA; }
+
+.btn-ejecutar {
+    margin-top: 10px;
+    background: #00ff9d;
+    color: #000;
+    border: none;
+    padding: 6px 14px;
+    font-size: 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-ejecutar:hover {
+    background: #00cc7a;
+    transform: scale(1.05);
+}
+
+.consola {
+    background: #000;
+    color: #00ff9d;
+    padding: 15px;
+    border-radius: 0 0 10px 10px;
+    min-height: 140px;
+    font-size: 14px;
+}
+</style>
+
+<div class="bloque-java">
+
+<pre class="codigo-java"><span class="keyword">import</span> java.util.*;
+
+<span class="keyword">public class</span> <span class="class">ColaEjemplo</span> {
+
+    <span class="keyword">public static void</span> <span class="method">main</span>(String[] args) {
+
+        Queue&lt;String&gt; cola = <span class="keyword">new</span> LinkedList&lt;&gt;();
+
+        cola.add(<span class="string">"Persona 1"</span>);
+        cola.add(<span class="string">"Persona 2"</span>);
+        cola.add(<span class="string">"Persona 3"</span>);
+
+        System.out.println(<span class="string">"Cola inicial: "</span> + cola);
+
+        System.out.println(<span class="string">"Atendiendo a: "</span> + cola.poll());
+
+        System.out.println(<span class="string">"Siguiente en la cola: "</span> + cola.peek());
+
+        System.out.println(<span class="string">"Cola final: "</span> + cola);
+    }
+}
+</pre>
+
+<button class="btn-ejecutar" onclick="ejecutarCola()">▶ Ejecutar</button>
+
+<div id="consola-cola" class="consola"></div>
+
+</div>
+</section>
+    <section class="info-last">
+
+        <div class="contenedor last-section">
+            <div class="contenedor-textos-main">
+                <h2 class="titulo left">Características y detalles clave:</h2>
+                <p class="parrafo">Funcionamiento (FIFO): El primer elemento insertado es el primero en ser eliminado.</p>
+                <p class="parrafo">Interfaz Queue: Proporciona métodos para insertar, eliminar y examinar elementos, como add()/offer() para agregar, poll()/remove() para eliminar, y peek()/element() para consultar.</p>
+                <p class="parrafo">Implementaciones comunes: Las clases que implementan Queue incluyen LinkedList, PriorityQueue, ArrayBlockingQueue y ArrayDeque.</p>
+                <p class="parrafo">Usos: Ideal para gestionar tareas en orden, como en colas de impresión o algoritmos de búsqueda en anchura (BFS).</p>
+                <a href="" class="cta">Inicio</a>
+            </div>
+            <img src="img/desarrollo.png" alt="">
+        </div>
+        
+        <div class="svg-wave" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
+            style="height: 100%; width: 100%;">
+            <path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
+                style="stroke: none; fill: #f5576c;"></path>
+        </svg></div>
+    </section>
+
+    <script src="https://kit.fontawesome.com/c15b744a04.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>POO</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <section class="contenedor nav">
+                <div class="logo">
+                    <img src="" alt="">
+                </div>
+                <div class="enlaces-header">
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                </div>
+                <a href="javascript:history.back()" class="btn-regresar">
+    <i class="fas fa-arrow-left"></i>
+    <span>Regresar</span>
+</a>
+</a>
+</a>
+                <div class="hamburguer">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </section>
+        </nav>
+        <div class="contenedor">
+            <section class="contenido-header">
+                <section class="textos-header">
+                    <h1>Programación Orientada a Objetos</h1>
+                    <p>(POO) es un paradigma de programación</p>
+                    <a href="#">Learn more</a>
+                </section>
+                <video width="600" controls autoplay muted loop>
+                <source src="img/cuidado.mp4" type="video/mp4">
+            </video>
+            </section>
+        </div>
+    </header>
+    <section class="about-us">
+        <div class="contenedor1">
+            <h2 class="titulo">Estos son sus principales pilares</h2>
+            <div class="contenedor-articulo">
+                <div class="articulo" data-aos="zoom-in-right">
+                    <i class="fas fa-pen-fancy"></i>
+                    <h3>1--> Encapsulamiento:</h3>
+                    <p>Se refiere a la agrupación de datos con los métodos que operan en esos datos, o la restricción del acceso directo a algunos de los componentes de un objeto. Encapsulamiento ayuda a prevenir la modificación accidental de datos.</p>
+                    <a href="#">Read more ---></a>
+                </div>
+                <div class="articulo" data-aos="zoom-in-right">
+                    <i class="fas fa-code"></i>
+                    <h3>2--> Abtraccion:</h3>
+                    <p> La abstracción se centra en ocultar la complejidad interna y mostrar sólo las funcionalidades necesarias. En POO se abstrae la complejidad de los objetos presentando modelos simplificados.</p>
+                    <a href="#">Read more ---></a>
+                </div>
+                <div class="articulo" data-aos="zoom-in-right">
+                    <i class="fas fa-cog"></i>
+                    <h3>3--> Herencia:</h3>
+                    <p> Es un mecanismo que permite a una nueva clase heredar propiedades y métodos de una clase existente. La herencia soporta la reutilización de código y es una forma de lograr la polimorfia.</p>
+                    <a href="#">Read more ---></a>
+                </div>
+                <div class="articulo" data-aos="zoom-in-right">
+                    <i class="fas fa-chart-pie"></i>
+                    <h3>4--> Polimorfismo:</h3>
+                    <p>Permite que las clases tengan diferentes métodos que se llaman de la misma manera. Polimorfismo significa «muchas formas» y proporciona la capacidad de una clase para trabajar como si fuera otra clase.</p>
+                    <a href="#">Read more ---></a>
+                </div>
+                <div class="articulo" data-aos="zoom-in-right">
+                    <i class="fas fa-comments"></i>
+                    <h3>5--> Objetos</h3>
+                    <p>En POO, un objeto es una instancia de una clase. Puede contener datos (atributos) y código (métodos). Los objetos son fundamentales en POO y son estructuras que representan cosas como usuarios, pedidos, productos, etc.</p>
+                    <a href="#">Read more ---></a>
+                </div>
+                <div class="articulo" data-aos="zoom-in-right">
+                    <i class="fas fa-chart-bar"></i>
+                    <h3>6--> Clases</h3>
+                    <p>Una clase es un prototipo o plantilla a partir de la cual se crean objetos. Define las propiedades y comportamientos que sus objetos miembros tendrán. Una clase es una especie de «molde» que define cómo se construye un objeto.</p>
+                    <a href="#">Read more ---></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="questions contenedor">
+        <section class="textos-questions">
+            <h1>Qué es la Programación Orientada a Objetos</h1>
+            <p>La Programación Orientada a Objetos (POO) es un paradigma de programación, es decir, un modelo o un estilo de programación que nos da unas guías sobre cómo trabajar con él. Se basa en el concepto de clases y objetos. Este tipo de programación se utiliza para estructurar un programa de software en piezas simples y reutilizables de planos de código (clases) para crear instancias individuales de objetos.</p>
+            <a href="#">Learn more</a>
+        </section>
+        <video width="600" controls autoplay muted loop>
+                <source src="img/video.mp4" type="video/mp4">
+            </video>
+    </section>
+
+    <section class="results">
+        <div class="contenedor1 conten-results">
+            <section class="numbers">
+                <h2>Ejemplo de POO en Java</h2>
+<style>
+.bloque-java {
+    max-width: 750px;
+    margin: 40px auto;
+    font-family: 'Courier New', monospace;
+}
+
+/* Código */
+.codigo-java {
+    background: #1e1e1e;
+    color: #dcdcdc;
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+    font-size: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+/* Colores tipo Java */
+.keyword { color: #569CD6; }
+.class { color: #4EC9B0; }
+.string { color: #CE9178; }
+.method { color: #DCDCAA; }
+
+/* Inputs */
+.inputs {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.inputs input {
+    padding: 6px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    font-size: 12px;
+}
+
+/* Botón */
+.btn-ejecutar {
+    margin-top: 10px;
+    background: #00ff9d;
+    color: #000;
+    border: none;
+    padding: 6px 14px;
+    font-size: 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-ejecutar:hover {
+    background: #00cc7a;
+    transform: scale(1.05);
+}
+
+/* Consola */
+.consola {
+    background: #000;
+    color: #00ff9d;
+    padding: 15px;
+    border-radius: 0 0 10px 10px;
+    min-height: 140px;
+    font-size: 14px;
+    position: relative;
+}
+
+/* Cursor */
+.cursor::after {
+    content: "|";
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+</style>
+
+
+<div class="bloque-java">
+
+<pre class="codigo-java">
+<span class="keyword">class</span> <span class="class">Persona</span> {
+    <span class="keyword">private</span> String nombre;
+    <span class="keyword">private</span> int edad;
+
+    <span class="keyword">public</span> Persona(String nombre, int edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+
+    <span class="keyword">public</span> <span class="method">void</span> mostrarDatos() {
+        System.out.println(<span class="string">"Nombre: "</span> + nombre);
+        System.out.println(<span class="string">"Edad: "</span> + edad);
+    }
+
+    <span class="keyword">public</span> <span class="method">void</span> cumplirAnios() {
+        edad++;
+        System.out.println(nombre + <span class="string">" ahora tiene "</span> + edad + <span class="string">" años."</span>);
+    }
+}
+</pre>
+
+<div class="inputs">
+    <input type="text" id="nombre" placeholder="Nombre (ej: Lizeth)">
+    <input type="number" id="edad" placeholder="Edad (ej: 19)">
+            </div>
+
+            <button class="btn-ejecutar" onclick="ejecutarJava()">▶ Ejecutar</button>
+
+            <div id="consola" class="consola"></div>
+
+            </div>
+
+
+            <script>
+            function escribirLinea(texto, delay) {
+                return new Promise(resolve => {
+                    const consola = document.getElementById("consola");
+                    const linea = document.createElement("div");
+                    consola.appendChild(linea);
+
+                    let i = 0;
+                    const intervalo = setInterval(() => {
+                        linea.textContent += texto[i];
+                        i++;
+                        if (i >= texto.length) {
+                            clearInterval(intervalo);
+                            resolve();
+                        }
+                    }, 20);
+                });
+            }
+
+            async function ejecutarJava() {
+                const consola = document.getElementById("consola");
+                consola.innerHTML = "";
+
+                let nombre = document.getElementById("nombre").value || "Lizeth";
+                let edad = document.getElementById("edad").value || 20;
+
+                await escribirLinea("> Compilando...");
+                await escribirLinea("> Ejecutando programa...");
+                await escribirLinea("");
+
+                await escribirLinea("> Nombre: " + nombre);
+                await escribirLinea("> Edad: " + edad);
+                await escribirLinea("> " + nombre + " ahora tiene " + (parseInt(edad) + 1) + " años.");
+
+                await escribirLinea("");
+                await escribirLinea("> Proceso finalizado correctamente ✔");
+            }
+</script>
+            </section>
+            <section class="results-text">
+                <h4>Ejemplo en codigo</h4>
+                <p>Con el paradigma de Programación Orientado a Objetos lo que buscamos es dejar de centrarnos en la lógica pura de los programas, para empezar a pensar en objetos, lo que constituye la base de este paradigma. Esto nos ayuda muchísimo en sistemas grandes, ya que en vez de pensar en funciones, pensamos en las relaciones o interacciones de los diferentes componentes del sistema.</p>
+                <p>Un programador diseña un programa de software organizando piezas de información y comportamientos relacionados en una plantilla llamada clase. Luego, se crean objetos individuales a partir de la plantilla de clase. Todo el programa de software se ejecuta haciendo que varios objetos interactúen entre sí para crear un programa más grande.</p>
+                <a href="#">Learn more</a>
+            </section>
+        </div>
+    </section>
+    <footer>
+        <div class="partFooter">
+            <img src="" alt="">
+        </div>
+        <div class="partFooter">
+            <h4>POO</h4>
+            <div class="social-media">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-youtube"></i>
+            </div>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://kit.fontawesome.com/c15b744a04.js" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

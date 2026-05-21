@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arboles</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<script>
+function escribirLineaArbol(texto) {
+    return new Promise(resolve => {
+        const consola = document.getElementById("consola-arbol");
+        const linea = document.createElement("div");
+        consola.appendChild(linea);
+
+        let i = 0;
+        const intervalo = setInterval(() => {
+            linea.textContent += texto[i];
+            i++;
+            if (i >= texto.length) {
+                clearInterval(intervalo);
+                resolve();
+            }
+        }, 20);
+    });
+}
+
+async function ejecutarArbol() {
+    const consola = document.getElementById("consola-arbol");
+    consola.innerHTML = "";
+
+    await escribirLineaArbol("> Compilando árbol...");
+    await escribirLineaArbol("> Insertando nodos...");
+
+    let valores = [50, 30, 70, 20, 40];
+
+    await escribirLineaArbol("> Valores insertados: " + valores.join(", "));
+
+    await escribirLineaArbol("> Recorrido INORDEN:");
+
+    let ordenados = [...valores].sort((a,b)=>a-b);
+
+    for (let v of ordenados) {
+        await escribirLineaArbol("> " + v);
+    }
+
+    await escribirLineaArbol("> Proceso finalizado ");
+}
+</script>
+<body>
+    <a href="javascript:history.back()" 
+        <a href="javascript:history.back()" 
+style="
+position: fixed;
+top: 100px;
+left: 20px;
+z-index: 99999;
+
+display: flex;
+align-items: center;
+gap: 8px;
+
+padding: 10px 20px;
+border-radius: 50px;
+
+background: linear-gradient(135deg, rgba(0,0,0,0.85), rgba(40,40,40,0.9));
+color: white;
+
+font-size: 14px;
+font-weight: 500;
+letter-spacing: 0.5px;
+
+text-decoration: none;
+
+backdrop-filter: blur(12px);
+
+box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+
+opacity: 0;
+transform: translateY(-20px);
+
+animation: aparecer 0.8s ease forwards;
+
+transition: all 0.3s ease;
+"
+onmouseover="this.style.transform='translateY(-4px) scale(1.06)'; this.style.boxShadow='0 15px 40px rgba(0,0,0,0.8)'"
+onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.6)'"
+onmousedown="this.style.transform='scale(0.95)'"
+onmouseup="this.style.transform='scale(1.06)'"
+>
+<span style="
+display:inline-block;
+transition: transform 0.3s;
+"
+onmouseover="this.style.transform='translateX(-6px)'"
+onmouseout="this.style.transform='translateX(0)'"
+>
+←
+</span>
+Regresar
+</a>
+
+<style>
+@keyframes aparecer {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+</a>
+    <header class="header" id="inicio">
+        
+        <div class="contenedor head">
+            <h1 class="titulo">Arbol binario y arbol de busqueda</h1>
+            <p class="copy">.....................................</p>
+        </div>       
+    </header>
+    <main>
+        <section class="services contenedor" id="servicio">
+            <div class="contenedor-servicio">
+                <img src="img/siete.png" class="img-galeria" alt="">
+                <div class="checklist-servicio">
+                    <div class="service">
+                        <h3 class="n-service"><span class="number">1</span></h3>
+                        <h2 class="subtitulo">██▓▒░⡷⠂Árbol Binario⠐⢾░▒▓██</h2>
+                        <p> A diferencia de los arreglos, listas enlazadas, pilas y colas, que son estructuras de datos lineales, los árboles son estructuras de datos jerárquicas.
+ Un árbol binario es una estructura de datos en forma de árbol en el cual cada nodo tiene como máximo 2 hijos, a los que se le denomina hijo izquierdo e hijo derecho se implementa principalmente utilizando enlaces (links)
+ Un árbol binario se representa mediante un puntero al nodo más alto del árbol. Si el árbol está vacío entonces el valor de la raíz es NULL.
+</p>
+                    </div>
+                    <div class="service">
+                        <h3 class="n-service"><span class="number">2</span></h3>
+                        <h2 class="subtitulo">██▓▒░⡷⠂Árbol de Búsqueda Binario⠐⢾░▒▓██</h2>
+                        <p>Un árbol de búsqueda binaria es un árbol binario que cumple las siguientes propiedades adicionales.
+•   La parte izquierda del nodo raíz contiene claves menores que la clave del nodo raíz 
+•   La parte derecha del nodo raíz contiene claves mayores que la clave del nodo raíz
+•   No existen claves duplicados en el árbol binario
+Un árbol binario que cumple con estas propiedades se conoce como árbol de búsqueda binaria (BST).</p>
+                    </div>                   
+            </div>
+        </section>
+        <section class="gallery" id="galeria">
+            <div class="contenedor">
+                <h2 class="subtitulo">Ejemplos</h2>
+                <div class="contenedor-galeria">
+                    <img src="img/uno.jpg" class="img-galeria" alt="Hola">
+                    <img src="img/dos.jpg" class="img-galeria" alt="">
+                    <img src="img/tres.jpg" class="img-galeria" alt="">
+                    
+                </div>
+            </div>
+        </section>
+        <div class="imagen-light">
+            <img src="img/close.svg" alt="" class="close">
+            <img src="" alt="" class="agregar-imagen">
+        </div>
+        <section class="contenedor" id="expertos">
+            <h2 class="subtitulo">██▓▒░⡷⠂EJEMPLO EN CODIGO⠐⢾░▒▓██</h2>          
+        </section>
+    </main>
+
+<style>
+.bloque-ejemplo {
+    display: flex;
+    justify-content: center;
+}
+
+.bloque-java {
+    max-width: 650px;
+    width: 100%;
+    margin: 40px auto;
+    font-family: 'Courier New', monospace;
+}
+
+.codigo-java {
+    background: #1e1e1e;
+    color: #dcdcdc;
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+    font-size: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+
+    margin: 0;
+    width: 100%;
+    overflow-x: auto;
+    white-space: pre;
+    text-align: left;
+}
+
+.keyword { color: #569CD6; }
+.class { color: #4EC9B0; }
+.string { color: #CE9178; }
+.method { color: #DCDCAA; }
+
+.btn-ejecutar {
+    margin-top: 10px;
+    background: #00ff9d;
+    color: #000;
+    border: none;
+    padding: 6px 14px;
+    font-size: 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-ejecutar:hover {
+    background: #00cc7a;
+    transform: scale(1.05);
+}
+
+.consola {
+    background: #000;
+    color: #00ff9d;
+    padding: 15px;
+    border-radius: 0 0 10px 10px;
+    min-height: 140px;
+    font-size: 14px;
+}
+</style>
+
+<div class="bloque-java">
+
+<pre class="codigo-java"><span class="keyword">class</span> <span class="class">Nodo</span> {
+    <span class="keyword">int</span> dato;
+    Nodo izquierda, derecha;
+
+    Nodo(<span class="keyword">int</span> dato) {
+        <span class="keyword">this</span>.dato = dato;
+        izquierda = derecha = <span class="keyword">null</span>;
+    }
+}
+
+<span class="keyword">public class</span> <span class="class">ArbolBinario</span> {
+
+    Nodo raiz;
+
+    Nodo <span class="method">insertar</span>(Nodo raiz, <span class="keyword">int</span> dato) {
+        <span class="keyword">if</span> (raiz == <span class="keyword">null</span>) {
+            raiz = <span class="keyword">new</span> Nodo(dato);
+            <span class="keyword">return</span> raiz;
+        }
+
+        <span class="keyword">if</span> (dato &lt; raiz.dato)
+            raiz.izquierda = <span class="method">insertar</span>(raiz.izquierda, dato);
+        <span class="keyword">else</span>
+            raiz.derecha = <span class="method">insertar</span>(raiz.derecha, dato);
+
+        <span class="keyword">return</span> raiz;
+    }
+
+    <span class="keyword">void</span> <span class="method">inorden</span>(Nodo raiz) {
+        <span class="keyword">if</span> (raiz != <span class="keyword">null</span>) {
+            <span class="method">inorden</span>(raiz.izquierda);
+            System.out.println(raiz.dato);
+            <span class="method">inorden</span>(raiz.derecha);
+        }
+    }
+
+    <span class="keyword">public static void</span> <span class="method">main</span>(String[] args) {
+        ArbolBinario arbol = <span class="keyword">new</span> ArbolBinario();
+
+        arbol.raiz = arbol.insertar(arbol.raiz, 50);
+        arbol.insertar(arbol.raiz, 30);
+        arbol.insertar(arbol.raiz, 70);
+        arbol.insertar(arbol.raiz, 20);
+        arbol.insertar(arbol.raiz, 40);
+
+        arbol.inorden(arbol.raiz);
+    }
+}
+</pre>
+
+<button class="btn-ejecutar" onclick="ejecutarArbol()">▶ Ejecutar</button>
+
+<div id="consola-arbol" class="consola"></div>
+
+</div>
+</section>
+    <footer id="footer">
+        <div class="line"></div>
+    </footer>
+    <script src="js/menu.js"></script>
+    <script src="js/lightbox.js"></script>
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PILAS (STACK)</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<script>
+function escribirLineaPila(texto) {
+    return new Promise(resolve => {
+        const consola = document.getElementById("consola-pila");
+        const linea = document.createElement("div");
+        consola.appendChild(linea);
+
+        let i = 0;
+        const intervalo = setInterval(() => {
+            linea.textContent += texto[i];
+            i++;
+            if (i >= texto.length) {
+                clearInterval(intervalo);
+                resolve();
+            }
+        }, 20);
+    });
+}
+
+async function ejecutarPila() {
+    const consola = document.getElementById("consola-pila");
+    consola.innerHTML = "";
+
+    let pila = ["Pelota café", "Pelota negra", "Pelota roja", "Pelota amarilla", "Pelota violeta"];
+
+    await escribirLineaPila("> Pila inicial:");
+    await escribirLineaPila("> " + JSON.stringify(pila));
+
+    await escribirLineaPila("> Ultimo elemento: " + pila[pila.length - 1]);
+
+    let eliminado = pila.pop();
+    await escribirLineaPila("> Eliminando: " + eliminado);
+
+    await escribirLineaPila("> Pila actual:");
+    await escribirLineaPila("> " + JSON.stringify(pila));
+
+    let posicion = pila.lastIndexOf("Pelota café");
+    await escribirLineaPila("> Ubicación: " + (posicion !== -1 ? pila.length - posicion : "No encontrada"));
+
+    await escribirLineaPila("> Proceso finalizado ");
+}
+</script>
+<body>
+    <header>
+        <nav>
+         <a href="javascript:history.back()" 
+style="
+position: fixed;
+top: 100px;
+left: 20px;
+z-index: 99999;
+
+display: flex;
+align-items: center;
+gap: 8px;
+
+padding: 10px 20px;
+border-radius: 50px;
+
+background: linear-gradient(135deg, rgba(0,0,0,0.85), rgba(40,40,40,0.9));
+color: white;
+
+font-size: 14px;
+font-weight: 500;
+letter-spacing: 0.5px;
+
+text-decoration: none;
+
+backdrop-filter: blur(12px);
+
+box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+
+opacity: 0;
+transform: translateY(-20px);
+
+animation: aparecer 0.8s ease forwards;
+
+transition: all 0.3s ease;
+"
+onmouseover="this.style.transform='translateY(-4px) scale(1.06)'; this.style.boxShadow='0 15px 40px rgba(0,0,0,0.8)'"
+onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.6)'"
+onmousedown="this.style.transform='scale(0.95)'"
+onmouseup="this.style.transform='scale(1.06)'"
+>
+<span style="
+display:inline-block;
+transition: transform 0.3s;
+"
+onmouseover="this.style.transform='translateX(-6px)'"
+onmouseout="this.style.transform='translateX(0)'"
+>
+←
+</span>
+Regresar
+</a>
+
+<style>
+@keyframes aparecer {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+</a>
+        </nav>
+
+        <div class="contenedor">
+            <section class="contenido-header">
+                <section class="textos-header">
+                    <h1>𝑷𝒊𝒍𝒂𝒔 ( 𝑺𝒕𝒂𝒄𝒌 )</h1>
+                    <p>................................................................................</p>
+                    <a href="#">PILAS</a>
+                </section>
+                <img src="img/uno.png" alt="">
+            </section>
+        </div>
+    </header>
+    <section class="about-us">
+        <div class="contenedor1">
+            <h2 class="titulo">𝙌𝙪𝙚 𝙚𝙨 𝙪𝙣𝙖 𝙋𝙞𝙡𝙖 ? </h2>
+            <div class="contenedor-articulo">
+                <div class="articulo" data-aos="zoom-in-right">
+                    <i class="fas fa-pen-fancy"></i>
+                    <h3></h3>
+                    <p>La pila está es una estructura de datos lineal que sigue un orden particular en la que se realizan las operaciones. Este orden puede ser LIFO (last in, first out - último en entrar, primero en salir) o FILO (first in, last out - primero en entrar, último en salir), en una pila todas las posiciones de inserción y eliminación se permiten únicamente en un solo extremo de la lista.</p>
+                    <a href="#">Siguiente ---></a>
+                </div>
+                <div class="articulo" data-aos="zoom-in-right">
+                    <i class="fas fa-code"></i>
+                    <h3></h3>
+                    <p>`push`: inserta un elemento en la pila.</p>
+                    <p>`pop`: elimina el elemento superior de la pila.</p>
+                    <p>`peek`: devuelve el elemento superior de la pila sin eliminarlo.</p>
+                    <p>`isEmpty`: verifica si la pila está vacía.</p>
+                    <p>`search`: busca un elemento en la pila y devuelve su distancia desde la parte superior.</p>
+                    <a href="#">Siguiente ---></a>
+                </div>
+                <div class="articulo" data-aos="zoom-in-right">
+                    <i class="fas fa-cog"></i>
+                    <h3></h3>
+                    <p>La pila es una estructura de datos lineal que se utiliza para almacenar la colección de objetos. Se basa en el principio LIFO (último en entrar, primero en salir). El framework de colecciones de Java proporciona numerosas interfaces y clases para almacenar la colección de objetos.</p>
+                    <a href="#">Siguiente ---></a>
+                </div>
+                <div class="articulo" data-aos="zoom-in-right">
+                    <i class="fas fa-chart-pie"></i>
+                    <h3></h3>
+                    <p>La estructura de datos de la pila incluye dos operaciones importantes: insertar y extraer. La operación insertar inserta un elemento en la pila, mientras que la operación extraer lo elimina de la parte superior.</p>
+                    <a href="#">Siguiente ---></a>
+                </div>
+                <div class="articulo" data-aos="zoom-in-right">
+                    <i class="fas fa-comments"></i>
+                    <h3></h3>
+                    <p>La estructura de datos de la pila implementa y sigue el principio LIFO (último en entrar, primero en salir) . Esto implica que el último elemento que se inserta sale primero. El proceso de insertar un elemento en la pila se conoce como operación push. En este caso, la eliminación de elementos se conoce como operación pop.</p>
+                    <a href="#">Siguiente ---></a>
+                </div>
+                <div class="articulo" data-aos="zoom-in-right">
+                    <i class="fas fa-chart-bar"></i>
+                    <h3></h3>
+                    <p>Los cuatro pilares de Java (encapsulación, abstracción, herencia y polimorfismo) son fundamentales para escribir aplicaciones Java eficientes, reutilizables y fáciles de mantener.</p>
+                    <a href="#">Siguiente ---></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="questions contenedor">
+        <section class="textos-questions">
+            <h1>𝙄𝙣𝙩𝙧𝙤𝙙𝙪𝙘𝙘𝙞𝙤𝙣.</h1>
+            <p>Las pilas y las colas son estructuras de datos fundamentales en el mundo de la programación. En este artículo, exploraremos en detalle qué son las pilas y las colas, cómo funcionan, y cómo implementarlas en Java utilizando las clases Stack y `Queue`.</p>
+            <a href="#">Pilas</a>
+        </section>
+        <img src="img/dos.png" alt="">
+    </section>
+
+    <section class="results">
+        <div class="contenedor1 conten-results">
+            <section class="numbers">
+                <div class="number" data-aos="zoom-in-left">
+                    <h4>Pila Fifo</h4>
+                    <p>Una pila o estructura FIFO (First In, First Out) es un sistema donde el primer elemento en entrar es el primero en salir. Es un método de organización secuencial esencial en informática para buffers, gestión de memoria y colas de impresión, asegurando que los datos se procesen en el orden exacto de llegada. </p>
+                </div>
+                <div class="number" data-aos="zoom-in-left">
+                    <h4>Pila Lifo</h4>
+                    <p>Una pila (stack) en informática es una estructura de datos basada en el principio LIFO (Last In, First Out), donde el último elemento en entrar es el primero en salir. Funciona como una pila de platos, gestionando datos mediante dos operaciones clave: push (apilar/añadir al tope) y pop (desapilar/retirar el tope).</p>
+                </div>
+            </section>
+            <section class="results-text">
+                <h4>Conclusión</h4>
+                <p>Las pilas y las colas son estructuras de datos esenciales en programación, utilizadas en una amplia variedad de aplicaciones. En Java, las implementamos utilizando las clases `Stack` y la interfaz `Queue`. Esperamos que esta guía te haya ayudado a comprender mejor estas estructuras y cómo utilizarlas en tus proyectos. ¡Explora más y experimenta con pilas y colas para mejorar tus habilidades de programación!</p>
+                <a href="#">Inicio</a>
+            </section>
+        </div>
+    </section>
+    <section class="bloque-ejemplo" style="margin-top:30px;">
+    <h2 style="text-align:center;">Ejemplo: Pilas en Java</h2>
+
+    <style>
+        .bloque-ejemplo {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .bloque-java {
+            max-width: 650px;
+            width: 100%;
+            margin: 40px auto;
+            font-family: 'Courier New', monospace;
+        }
+
+        .codigo-java {
+            background: #1e1e1e;
+            color: #dcdcdc;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
+            font-size: 14px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+
+            margin: 0;
+            width: 100%;
+            overflow-x: auto;
+            white-space: pre;
+            text-align: left;
+        }
+
+        .keyword { color: #569CD6; }
+        .class { color: #4EC9B0; }
+        .string { color: #CE9178; }
+        .method { color: #DCDCAA; }
+
+        .btn-ejecutar {
+            margin-top: 10px;
+            background: #00ff9d;
+            color: #000;
+            border: none;
+            padding: 6px 14px;
+            font-size: 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-ejecutar:hover {
+            background: #00cc7a;
+            transform: scale(1.05);
+        }
+
+        .consola {
+            background: #000;
+            color: #00ff9d;
+            padding: 15px;
+            border-radius: 0 0 10px 10px;
+            min-height: 140px;
+            font-size: 14px;
+        }
+    </style>
+
+    <div class="bloque-java">
+
+<pre class="codigo-java"><span class="keyword">import java.util.Stack;</span>
+
+<span class="keyword">public class</span> <span class="class">PILA2</span> {
+    <span class="keyword">public static void</span> <span class="method">main</span>(String[] args){
+
+        Stack&lt;String&gt; Pelotas = <span class="keyword">new</span> Stack();
+
+        Pelotas.push(<span class="string">"Pelota café"</span>);
+        Pelotas.push(<span class="string">"Pelota negra"</span>);
+        Pelotas.push(<span class="string">"Pelota roja"</span>);
+        Pelotas.push(<span class="string">"Pelota amarilla"</span>);
+        Pelotas.push(<span class="string">"Pelota violeta"</span>);
+
+        System.out.println(Pelotas);
+
+        System.out.println(<span class="string">"Ultimo elemento "</span> + Pelotas.peek());
+
+        System.out.println(<span class="string">"Ultimo elemento eliminado "</span> + Pelotas.pop());
+
+        System.out.println(Pelotas);
+
+        System.out.println(<span class="string">"Ubicación: "</span> + Pelotas.search(<span class="string">"Pelota café"</span>));
+    }
+}
+</pre>
+
+        <button class="btn-ejecutar" onclick="ejecutarPila()">▶ Ejecutar</button>
+
+        <div id="consola-pila" class="consola"></div>
+
+    </div>
+</section>
+    <section class="contenedor1 services">
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://kit.fontawesome.com/c15b744a04.js" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

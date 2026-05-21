@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apache NetBeans IDE</title>
+
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+    <div class="editor-container">
+        <div class="topbar">
+
+            <div class="logo">
+
+                <div class="botones-mac">
+                    <div class="circulo rojo"></div>
+                    <div class="circulo amarillo"></div>
+                    <div class="circulo verde"></div>
+                </div>
+
+                <div class="logo-text">
+                    <h1>Apache NetBeans IDE</h1>
+                </div>
+
+            </div>
+            <div class="acciones">
+
+                <!-- EJECUTAR -->
+                <button class="run-btn" onclick="ejecutarCodigo()">
+
+                    <div class="triangulo-verde"></div>
+
+                </button>
+                <button class="clear-btn" onclick="limpiarCodigo()">
+
+                    <div class="triangulo-rojo"></div>
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="editor-box">
+
+            <!-- NUMEROS -->
+            <div class="lineas">
+1<br>
+2<br>
+3<br>
+4<br>
+5<br>
+6<br>
+7<br>
+8<br>
+9<br>
+10<br>
+11<br>
+12<br>
+13<br>
+14<br>
+15<br>
+16<br>
+17<br>
+18<br>
+19<br>
+20
+            </div>
+
+            <textarea id="codigo" spellcheck="false">
+
+package ejercicio01;
+
+public class Ejemplo1 {
+
+    public static void main(String[] args) {
+
+        System.out.println("Bienvenido al simulador");
+
+        System.out.println("Crea tu propio codigo");
+
+    }
+
+}
+            </textarea>
+
+        </div>
+
+        <div class="resultado-box">
+
+            <div class="resultado-top">
+                Output
+            </div>
+
+            <div id="resultado"></div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+
+        function ejecutarCodigo() {
+
+            let codigo = document.getElementById("codigo").value;
+
+            let consola = document.getElementById("resultado");
+
+            consola.innerHTML = "";
+
+            // DETECTAR PRINTLN
+
+            if (codigo.includes('System.out.println')) {
+
+                let regex = /System\.out\.println\s*\(\s*"(.*?)"\s*\)/g;
+
+                let resultado = "";
+
+                let match;
+
+                while ((match = regex.exec(codigo)) !== null) {
+
+                    resultado += match[1] + "<br>";
+
+                }
+
+                consola.innerHTML = resultado;
+
+            }
+
+            else if (codigo.includes("int[]")) {
+
+                consola.innerHTML =
+                "Array detectado correctamente.<br>Compilación exitosa.";
+
+            }
+
+            else if (codigo.includes("class")) {
+
+                consola.innerHTML =
+                "Clase Java compilada correctamente.";
+
+            }
+
+            else if (codigo.includes("new")) {
+
+                consola.innerHTML =
+                "Objeto creado exitosamente.";
+
+            }
+            else {
+
+                consola.innerHTML =
+                "Error de compilación Java.";
+
+            }
+
+        }
+        function limpiarCodigo(){
+
+            document.getElementById("codigo").value = "";
+
+            document.getElementById("resultado").innerHTML = "";
+
+        }
+
+    </script>
+
+</body>
+
+</html>
