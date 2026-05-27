@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafos</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins', sans-serif;
+        }
+
+        body{
+            background:#0d1117;
+            color:white;
+            overflow-x:hidden;
+        }
+
+        header{
+            width:100%;
+            min-height:100vh;
+            background:
+            linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)),
+            url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1600&auto=format&fit=crop');
+            background-size:cover;
+            background-position:center;
+            display:flex;
+            flex-direction:column;
+        }
+
+        nav{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:25px 8%;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo{
+            font-size:28px;
+            font-weight:700;
+            color:#58a6ff;
+        }
+
+        .logo span{
+            color:#00ffae;
+        }
+
+        nav ul{
+            display:flex;
+            gap:30px;
+            list-style:none;
+        }
+
+        nav ul li a{
+            text-decoration:none;
+            color:white;
+            transition:.3s;
+        }
+
+        nav ul li a:hover{
+            color:#58a6ff;
+        }
+
+        .hero{
+            flex:1;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            padding:0 8%;
+        }
+
+        .hero-content{
+            max-width:700px;
+        }
+
+        .hero h1{
+            font-size:70px;
+            line-height:1.1;
+            margin-bottom:20px;
+        }
+
+        .hero h1 span{
+            color:#58a6ff;
+        }
+
+        .hero p{
+            font-size:18px;
+            color:#c9d1d9;
+            margin-bottom:35px;
+            line-height:1.7;
+        }
+
+        .buttons{
+            display:flex;
+            gap:20px;
+        }
+
+        .btn{
+            padding:15px 35px;
+            border:none;
+            border-radius:12px;
+            font-size:16px;
+            cursor:pointer;
+            transition:.3s;
+            font-weight:600;
+        }
+
+        .btn-primary{
+            background:#58a6ff;
+            color:white;
+        }
+
+        .btn-primary:hover{
+            background:#1f6feb;
+            transform:translateY(-3px);
+        }
+
+        .btn-secondary{
+            background:transparent;
+            border:2px solid #58a6ff;
+            color:#58a6ff;
+        }
+
+        .btn-secondary:hover{
+            background:#58a6ff;
+            color:white;
+            transform:translateY(-3px);
+        }
+
+        .cards{
+            width:100%;
+            padding:100px 8%;
+            display:grid;
+            grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+            gap:30px;
+            background:#161b22;
+        }
+
+        .card{
+            background:#0d1117;
+            padding:35px;
+            border-radius:20px;
+            transition:.4s;
+            border:1px solid rgba(255,255,255,.08);
+        }
+
+        .card:hover{
+            transform:translateY(-10px);
+            border-color:#58a6ff;
+            box-shadow:0 0 25px rgba(88,166,255,.3);
+        }
+
+        .card h3{
+            margin:20px 0;
+            color:#58a6ff;
+        }
+
+        .card p{
+            color:#c9d1d9;
+            line-height:1.6;
+        }
+
+        .icon{
+            font-size:50px;
+        }
+
+        footer{
+            text-align:center;
+            padding:30px;
+            background:#0d1117;
+            color:#8b949e;
+        }
+
+        @media(max-width:768px){
+
+            .hero h1{
+                font-size:45px;
+            }
+
+            nav{
+                flex-direction:column;
+                gap:20px;
+            }
+
+            nav ul{
+                flex-wrap:wrap;
+                justify-content:center;
+            }
+
+            .buttons{
+                flex-direction:column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+
+        <nav>
+            <div class="logo">GRA<span>FOS</span></div>
+
+        </nav>
+
+        <div class="hero">
+            <div class="hero-content">
+
+                <h1>
+                    Que son los 
+                    <span>Grafos</span>
+                </h1>
+
+                <p>
+                   Un GRAFO es una estructura de datos matemática que consta de un conjunto de vértices (también llamados nodos) y un conjunto de aristas (también llamadas bordes) que conectan estos vértices.
+                </p>
+            </div>
+        </div>
+
+    </header>
+
+    <section class="cards">
+
+        <div class="card">
+            <div class="icon">💻</div>
+            <h3>Componentes de un grafo</h3>
+            <p>Nodos (vértices): Son elementos individuales en el grafo. Cada vértice puede representar entidades como personas, lugares, o cualquier objeto que estemos modelando.
+            </p>
+            <p>Relaciones (aristas): Son las conexiones entre los vértices. Estas aristas pueden ser direccionales o no direccionales, dependiendo del tipo de relación que queremos representar.</p>
+            <p>Nodo adyacente: A los nodos que comparten una relación con el nodo actual se les denomina nodos adyacentes.</p>
+            <p>Padres e hijos: Cunando los nodos son orientados, a los nodos con relaciones entrantes y salientes se les denomina padres, o hijos.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">💻</div>
+            <h3>Tipos de grafos</h3>
+            <p>
+               Grafo No Dirigido: En este tipo de grafo, las aristas no tienen dirección. La relación entre dos vértices es bidireccional. Si A está conectado con B, entonces B también está conectado con A.
+            </p>
+            <p>Grafo Dirigido: En un grafo dirigido, las aristas tienen dirección. La relación entre dos vértices puede ser unidireccional. Por ejemplo, en un grafo de rutas, una carretera puede ir de A a B pero no necesariamente de B a A.</p>
+            <p>Grafo Ponderado: Además de tener aristas y vértices, un grafo ponderado asigna un peso numérico a cada arista. Estos pesos pueden representar el costo, distancia, o cualquier otra métrica relevante para la aplicación en particular.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">💻</div>
+            <h3>Terminología de grafos</h3>
+            <p>
+               Grado de un nodo: El grado de un nodo en un grafo es el número de aristas incidentes en ese nodo.
+            </p>
+            <p>
+                Camino: Un camino en un grafo es una secuencia de nodos conectados por aristas, donde cada nodo en la secuencia está conectado al siguiente mediante una arista.
+            </p>
+            <p>
+                Ciclo: Un ciclo en un grafo es un camino que comienza y termina en el mismo nodo, y que no repite ningún nodo intermedio (excepto el nodo de inicio/final).
+            </p>
+            <p>
+                Grafo conexo: Un grafo es conexo si existe un camino entre cada par de nodos en el grafo. Esto significa que se puede llegar desde cualquier nodo a cualquier otro nodo del grafo mediante una secuencia de aristas.
+            </p>
+            <p>
+                Grafo acíclico: Un grafo acíclico es un grafo que no contiene ningún ciclo. En otras palabras, no hay ningún camino cerrado en el grafo.
+            </p>
+            <p>
+                Grafo completo: Un grafo completo es un grafo en el que cada par de nodos está conectado por una arista. Esto significa que no hay nodos aislados en el grafo y que cada nodo está conectado directamente a todos los demás nodos del grafo.
+            </p>
+        </div>
+
+    </section>
+<section style="
+padding:100px 8%;
+background:#161b22;
+">
+
+    <div style="
+    background:#111;
+    border-radius:25px;
+    padding:30px;
+    box-shadow:0 20px 40px rgba(0,0,0,.5);
+    overflow:auto;
+    ">
+
+<pre style="
+color:white;
+font-size:15px;
+line-height:1.6;
+">
+
+<span style="color:#4ea1ff;">import</span> java.util.ArrayList;
+
+<span style="color:#4ea1ff;">public class</span> <span style="color:#00ffae;">Grafo</span> {
+
+    <span style="color:#4ea1ff;">private int</span> vertices;
+    <span style="color:#4ea1ff;">private</span> ArrayList&lt;Integer&gt;[] lista;
+
+    <span style="color:#4ea1ff;">public</span> Grafo(<span style="color:#ffcc66;">int</span> v) {
+
+        vertices = v;
+        lista = <span style="color:#4ea1ff;">new</span> ArrayList[v];
+
+        <span style="color:#4ea1ff;">for</span>(<span style="color:#ffcc66;">int</span> i = 0; i &lt; v; i++) {
+            lista[i] = <span style="color:#4ea1ff;">new</span> ArrayList&lt;&gt;();
+        }
+    }
+
+    <span style="color:#4ea1ff;">public void</span> agregarArista(
+    <span style="color:#ffcc66;">int</span> origen,
+    <span style="color:#ffcc66;">int</span> destino) {
+
+        lista[origen].add(destino);
+        lista[destino].add(origen);
+    }
+
+    <span style="color:#4ea1ff;">public void</span> mostrarGrafo() {
+
+        <span style="color:#4ea1ff;">for</span>(<span style="color:#ffcc66;">int</span> i = 0; i &lt; vertices; i++) {
+
+            System.out.print(
+            <span style="color:#ff9d66;">"Vertice "</span> + i + <span style="color:#ff9d66;">": "</span>);
+
+            <span style="color:#4ea1ff;">for</span>(Integer vecino : lista[i]) {
+                System.out.print(vecino + <span style="color:#ff9d66;">" "</span>);
+            }
+
+            System.out.println();
+        }
+    }
+
+    <span style="color:#4ea1ff;">public static void</span> main(String[] args) {
+
+        Grafo g = <span style="color:#4ea1ff;">new</span> Grafo(5);
+
+        g.agregarArista(0,1);
+        g.agregarArista(0,2);
+        g.agregarArista(1,3);
+        g.agregarArista(2,4);
+
+        g.mostrarGrafo();
+    }
+}
+</pre>
+
+    </div>
+    <button onclick="ejecutarCodigo()" style="
+    margin-top:25px;
+    background:#00ff99;
+    color:black;
+    border:none;
+    padding:10px 25px;
+    border-radius:40px;
+    font-size:20px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:.3s;
+    ">
+        ▶ Ejecutar
+    </button>
+    <div id="consola" style="
+    margin-top:20px;
+    background:black;
+    color:#00ff99;
+    padding:20px;
+    min-height:220px;
+    border-radius:10px;
+    font-size:16px;
+    font-family:monospace;
+    white-space:pre-line;
+    ">
+    </div>
+
+</section>
+
+<script>
+
+function ejecutarCodigo(){
+
+    document.getElementById("consola").innerHTML = `
+Vertice 0: 1 2
+Vertice 1: 0 3
+Vertice 2: 0 4
+Vertice 3: 1
+Vertice 4: 2
+    `;
+}
+
+</script>
+</body>
+</html>
